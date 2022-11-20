@@ -219,10 +219,12 @@ export default function Home() {
 	// and then calls helper functions to fetch the
 	// DAO Treasury Balance, User NFT Balance, and Number of Proposals in the DAO
 	useEffect(() => {
+		// Will only run on first mount => state will be true after
 		if (!walletConnected) {
 			web3ModalRef.current = new Web3Modal({
 				network: 'goerli',
 				providerOptions: {},
+				// Injected provider comes from wallet provider
 				disableInjectedProvider: false,
 			});
 
